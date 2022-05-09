@@ -1,0 +1,34 @@
+{% capture listItems %}
+
+{%- assign allItems = blogs['post'].articles -%}
+{%- assign count = 0 -%}                    
+{%- for item in allItems -%}
+    {% if count == 1 %}{% break %}
+{% endif %}{% assign condition_0 = false %}                  
+                {% if item.metafields.udesly['is-featured'] == "true" %}
+                    {% assign condition_0 = true %}
+                {% endif %}{% if condition_0 %}
+  {% assign count = count | plus: 1 %}
+   <div role="listitem" class="w-dyn-item">
+                <a href="{{ item.url }}" class="blog-link-wrapper w-inline-block">
+                  <div class="wrapper-image-blog rounded"><img src="{{ item.image | img_url: 'master' }}" loading="lazy" alt="{{ item.image.alt }}" class="image-cms" srcset="{{ item.image | img_url: '1920x' }} 1920w,{{ item.image | img_url: '1600x' }} 1600w,{{ item.image | img_url: '1366x' }} 1366w,{{ item.image | img_url: '1024x' }} 1024w,{{ item.image | img_url: '768x' }} 768w,{{ item.image | img_url: '640x' }} 640w"></div>
+                  <div class="paragraph-wrapper inner-padding-small">
+                    {%- assign itemHandle = "blog-categories/" | append: item.metafields.udesly['category'].handle -%}{%- assign refItem = articles[itemHandle] -%}<div class="title-tag text-red">{{ refItem.title }}</div>
+                    <h2 class="text text-light">{{ item.title }}</h2>
+                  </div>
+                </a>
+              </div>
+  {% endif %}
+{%- endfor -%}
+
+{% endcapture %}
+{% assign items_length = listItems | strip | size %}
+
+<div class="w-dyn-list" udy-collection="post">
+            {%- unless items_length == 0 -%}<div role="list" class="w-dyn-items">
+              {{ listItems }}
+            </div>{%- endunless -%}
+            {%- if items_length == 0 -%}<div class="w-dyn-empty">
+              <div>No items found.</div>
+            </div>{%- endif -%}
+          </div>

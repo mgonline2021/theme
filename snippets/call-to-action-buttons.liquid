@@ -1,0 +1,23 @@
+<div class="gray-wrapper rounded">
+        <div class="wrapper-call-to-action">
+          <div class="w-layout-grid main-grid inner-padding-small">
+            <div id="w-node-_4d4a78a3-6e91-635e-7844-ae35954de5ae-954de5ac" class="paragraph-wrapper">
+              <h3 class="text">Ready to get started?</h3>
+              <p class="p-small-size">Lorem ipsum dolor sit am consectetur adipiscing</p>
+            </div>
+            <div id="w-node-be5f3709-a236-3ba4-b6be-0e186a6e1af0-954de5ac" class="form-wrapper">
+              <div class="full-form w-form">
+                {%- form "contact",  class: "inner-form" -%}
+                  <div class="flex-form-field"><input type="email" class="text-field dark w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="Enter your email" id="Email-7" required=""><input type="submit" value="Get Started" data-wait="Please wait..." class="button color-red w-button"></div>
+                {%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+                <div class="success rounded w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                {%- unless form_success -%}<div class="error rounded w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+                  <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+                </div>{%- endunless -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

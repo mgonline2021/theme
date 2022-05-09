@@ -1,0 +1,126 @@
+<nav class="wrappernav">
+    <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+      <div class="w-layout-grid navgrid">
+        <a href="{{ routes.root_url }}" id="w-node-b2052354-5446-da9c-e906-f9d98118b8b1-8118b8ae" aria-current="page" class="w-nav-brand w--current"><img sizes="(max-width: 479px) 150px, 189.46875px" srcset="{{ 'cropped-logocardzslogan-640x152-p-500.png' | asset_url }} 500w, {{ 'cropped-logocardzslogan-640x152.png' | asset_url }} 640w" src="{{ 'cropped-logocardzslogan-640x152.png' | asset_url }}" loading="lazy" alt="" class="image-brand"></a>
+        <nav role="navigation" id="w-node-b2052354-5446-da9c-e906-f9d98118b8b3-8118b8ae" class="nav-menu w-nav-menu">
+          <div class="main-navbar">
+            <a href="{{ routes.root_url }}" aria-current="page" class="nav-link w-nav-link w--current">Home</a>
+            <a href="https://cardz.it/shop" class="nav-link w-nav-link">Shop</a>
+            <a href="#123" class="nav-link w-nav-link">Prezzi</a>
+            <div data-hover="true" data-delay="0" id="w-node-_78fafba6-b039-cebd-7711-8cbcb6870e77-8118b8ae" class="dropdown w-dropdown">
+              <div class="dropdown-toggle w-dropdown-toggle">
+                <div class="icon w-icon-dropdown-toggle"></div>
+                <div class="label-dropdown-2">Scopri di piú</div>
+              </div>
+              <nav class="dropdown-list w-dropdown-list">
+                <a href="https://cardz.it/card-metallo-silver" class="dropdown-link-2 w-dropdown-link">{{ section.settings.hybrid_metal_silver }}</a>
+                <a href="https://cardz.it/card-metallo-gold" class="dropdown-link-2 w-dropdown-link">{{ section.settings.hybrid_metal_gold }}</a>
+                <a href="https://cardz.it/biglietto-digitale-nfc-app" class="dropdown-link-2 w-dropdown-link">{{ section.settings.cardz_diventa_unapp }}</a>
+                <a href="https://cardz.it/dashboard-di-cardz" class="dropdown-link-2 w-dropdown-link">{{ section.settings.dropdown_link_dashboard }}</a>
+              </nav>
+            </div>
+            <a href="https://cardz.it/contact/" class="nav-link w-nav-link">Contatti</a>
+          </div>
+          <div class="buttons-nav-wrapper">
+            <div class="w-layout-grid grid-buttons">
+              <a id="w-node-_17d6b7b8-e83a-c429-e128-8eb54f3dbb72-8118b8ae" href="https://cardz.it/my-account" class="button topnav w-inline-block">
+                <div class="text-block-10">Login</div>
+              </a>
+              <div>
+                <a rel="nofollow" href="https://app.cardz.it" target="_blank" class="button color-red topnav w-button">Dashboard</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div id="w-node-b2052354-5446-da9c-e906-f9d98118b8c9-8118b8ae" data-w-id="b2052354-5446-da9c-e906-f9d98118b8c9" class="menu-button w-nav-button">
+          <div class="menu-mobile">
+            <div data-w-id="95a6b465-b1f6-32c9-f1ca-4e8c429efe2f" data-is-ix2-target="1" data-animation-type="lottie" data-src="{{ 'lf30_editor_0dtgjm93.json' | asset_url }}" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="1.5015014403440954" data-duration="0" data-ix2-initial-state="25"></div>
+          </div>
+        </div>
+      </div>
+      <a href="https://cardz.it/cart/" id="w-node-_0f382f7a-0886-950a-6802-09c67da76043-8118b8ae" data-w-id="0f382f7a-0886-950a-6802-09c67da76043" class="nav-link-2 w-nav-link">🛒</a>
+      <div data-node-type="commerce-cart-wrapper" data-open-product="" data-wf-cart-type="modal" data-wf-cart-query="" data-wf-page-link-href-prefix="" data-wf-cart-easing="ease-in-sine" class="w-commerce-commercecartwrapper button-cart" udy-collection="cart">
+        <a href="#" data-node-type="commerce-cart-open-link" class="w-commerce-commercecartopenlink cart-button w-inline-block"><svg class="w-commerce-commercecartopenlinkicon icon-cart" width="17px" height="17px" viewBox="0 0 17 17">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M2.60592789,2 L0,2 L0,0 L4.39407211,0 L4.84288393,4 L16,4 L16,9.93844589 L3.76940945,12.3694378 L2.60592789,2 Z M15.5,17 C14.6715729,17 14,16.3284271 14,15.5 C14,14.6715729 14.6715729,14 15.5,14 C16.3284271,14 17,14.6715729 17,15.5 C17,16.3284271 16.3284271,17 15.5,17 Z M5.5,17 C4.67157288,17 4,16.3284271 4,15.5 C4,14.6715729 4.67157288,14 5.5,14 C6.32842712,14 7,14.6715729 7,15.5 C7,16.3284271 6.32842712,17 5.5,17 Z" fill="currentColor" fill-rule="nonzero"></path>
+            </g>
+          </svg>
+          <div class="w-commerce-commercecartopenlinkcount cart-quantity-2">{{ cart.item_count }}</div>
+        </a>
+        <div data-node-type="commerce-cart-container-wrapper" style="display:none" class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-modal cart-wrapper-copy">
+          <div data-node-type="commerce-cart-container" class="w-commerce-commercecartcontainer cart-container rounded">
+            <div class="w-commerce-commercecartheader cart-header">
+              <h4 class="w-commerce-commercecartheading heading-regular text-black">Il tuo Carrello</h4>
+              <a href="#" data-node-type="commerce-cart-close-link" class="w-commerce-commercecartcloselink w-inline-block"><svg width="16px" height="16px" viewBox="0 0 16 16">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g fill-rule="nonzero" fill="#333333">
+                      <polygon points="6.23223305 8 0.616116524 13.6161165 2.38388348 15.3838835 8 9.76776695 13.6161165 15.3838835 15.3838835 13.6161165 9.76776695 8 15.3838835 2.38388348 13.6161165 0.616116524 8 6.23223305 2.38388348 0.616116524 0.616116524 2.38388348 6.23223305 8"></polygon>
+                    </g>
+                  </g>
+                </svg></a>
+            </div>
+            <div class="w-commerce-commercecartformwrapper cart-form-wrapper-copy">
+              <form data-node-type="commerce-cart-form" style="display:none" class="w-commerce-commercecartform default-state-nav-2">
+                <script type="text/x-wf-template" id="wf-template-7f5e66af-4366-71ca-501f-b81363dd434e"><div data-node-type="cart-item" template-part-bind="7f5e66af-4366-71ca-501f-b81363dd434f" class="w-commerce-commercecartitem"><img data-node-type="cart-item-image" class="image-cart w-commerce-commercecartitemimage" src="<%= it.image %>" template-part-bind="7f5e66af-4366-71ca-501f-b81363dd4350"><div data-node-type="cart-item-info" template-part-bind="7f5e66af-4366-71ca-501f-b81363dd4351" class="w-commerce-commercecartiteminfo"><div data-node-type="cart-product-name" template-part-bind="7f5e66af-4366-71ca-501f-b81363dd4352" class="w-commerce-commercecartproductname"><%= it.title %></div><div>This is some text inside of a div block.</div><ul class="w-commerce-commercecartoptionlist"><% Object.entries(it.properties).forEach( data =>  { %><li data-node-type="cart-option-list-item"><span data-node-type="cart-option-list-item-label"><%= data[0] %></span><span>: </span><span data-node-type="cart-option-list-item-value"><%= data[1] %></span></li><% }) %></ul><a data-node-type="cart-remove-link" class="remove-link-2" href="#" template-part-bind="7f5e66af-4366-71ca-501f-b81363dd435e" data-product-id="<%= it.id %>"><div>Rimuovi</div></a></div><input class="w-commerce-commercecartquantity" name="<%= it.id %>" type="number" min="0" min="1" value="<%= it.quantity %>" data-node-type="cart-quantity"></div></script>
+                <div class="w-commerce-commercecartlist" data-wf-collection="database.commerceOrder.userItems" data-wf-template-id="wf-template-7f5e66af-4366-71ca-501f-b81363dd434e"></div>
+                <div class="w-commerce-commercecartfooter">
+                  <div class="w-commerce-commercecartlineitem">
+                    <div>Subtotale</div>
+                    <div class="w-commerce-commercecartordervalue">{{ cart.items_subtotal_price | money }}</div>
+                  </div>
+                  <div>
+                    <div data-node-type="commerce-cart-quick-checkout-actions">{{ content_for_additional_checkout_buttons }}</div>
+                    <a href="/checkout" value="Completa Ordine" data-node-type="cart-checkout-button" class="w-commerce-commercecartcheckoutbutton button-8 color-blue" data-loading-text="Ti porto al Checkout...">Completa Ordine</a>
+                  </div>
+                </div>
+              </form>
+              <div class="w-commerce-commercecartemptystate empty-state">
+                <div>No items found.</div>
+              </div>
+              <div style="display:none" data-node-type="commerce-cart-error" class="w-commerce-commercecarterrorstate error-state-2">
+                <div class="w-cart-error-msg" data-w-cart-quantity-error="Product is not available in this quantity." data-w-cart-general-error="Something went wrong when adding this item to the cart." data-w-cart-checkout-error="Checkout is disabled on this site." data-w-cart-cart_order_min-error="The order minimum was not met. Add more items to your cart to continue." data-w-cart-subscription_error-error="Cart failed.">Product is not available in this quantity.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+{% unless request.design_mode %}
+<script>var currentSection = document.currentScript.closest('.shopify-section'); currentSection.outerHTML = currentSection.innerHTML;</script>
+{% endunless %}
+        
+{% schema %}
+{
+  "name": "Global Nav",
+  "tag": "div",
+  "class": "wrappernav",
+  "settings": [
+    {
+      "type": "text",
+      "id": "dropdown_link_dashboard",
+      "label": "Dropdown Link Dashboard",
+      "default": "Come gestirai Cardz"
+    },
+    {
+      "type": "text",
+      "id": "cardz_diventa_unapp",
+      "label": "Cardz diventa un'APP",
+      "default": "Cardz diventa un'APP"
+    },
+    {
+      "type": "text",
+      "id": "hybrid_metal_gold",
+      "label": "Hybrid Metal Gold",
+      "default": "Hybrid Metal Gold"
+    },
+    {
+      "type": "text",
+      "id": "hybrid_metal_silver",
+      "label": "Hybrid Metal Silver",
+      "default": "Hybrid Metal Silver"
+    }
+  ]
+}
+{% endschema %}

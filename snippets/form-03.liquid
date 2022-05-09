@@ -1,0 +1,27 @@
+<div class="w-layout-grid main-grid">
+        <div id="w-node-efbfdf02-f3f0-3711-0606-a995d2c64eb7-d2c64eb6" class="overflow-wrapper rounded"><img src="{{ 'waist-up-shot-attractive-young-girlfriend-with-dark-straight-hair-soft-healthy-skin.jpg' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 87vw, (max-width: 767px) 92vw, (max-width: 991px) 94vw, 95vw" srcset="{{ 'waist-up-shot-attractive-young-girlfriend-with-dark-straight-hair-soft-healthy-skin-p-500.jpeg' | asset_url }} 500w, {{ 'waist-up-shot-attractive-young-girlfriend-with-dark-straight-hair-soft-healthy-skin.jpg' | asset_url }} 600w" alt="" class="full-image"></div>
+        <div id="w-node-efbfdf02-f3f0-3711-0606-a995d2c64eb9-d2c64eb6" class="gray-wrapper inner-form">
+          <div class="form-container">
+            <h3 class="heading-regular margin-bottom-small">Create your free account</h3>
+            <div class="form-wrapper left">
+              <div class="full-form w-form">
+                {%- form "contact",  class: "inner-form" -%}
+                  <div class="inner-input">
+                    <div class="label-form">Full name</div><input type="text" class="text-field dark w-input" maxlength="256" name="contact[name]" data-name="Name" placeholder="Enter your name" id="Form-Account" required="">
+                  </div>
+                  <div class="inner-input margin-bottom-xsmall">
+                    <div class="label-form">Email</div><input type="email" class="text-field dark w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="Enter your email" id="Email-9" required="">
+                  </div>
+                  <div class="inner-input margin-bottom-xsmall"><input type="submit" value="Get Started" data-wait="Please wait..." class="button color-red w-button"></div><label class="w-checkbox"><input type="checkbox" id="checkbox-2" name="contact[checkbox_]" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">I have read and agree to the <a href="{{ pages["legal-pages"].url }}">Terms &amp; Conditions</a></span></label>
+                {%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+                <div class="success rounded w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                {%- unless form_success -%}<div class="error w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+                  <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+                </div>{%- endunless -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

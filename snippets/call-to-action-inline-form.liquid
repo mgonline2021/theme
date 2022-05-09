@@ -1,0 +1,16 @@
+<div class="bg-blue rounded">
+        <div class="w-layout-grid main-grid inner-padding-small">
+          <div id="w-node-_5e747d09-f72a-02e8-e5ae-78d2476c889c-476c889a" class="wrapper-call-to-action inner-padding-small">
+            <h3 class="text _20-ch margin-bottom-xsmall">Iscriviti alla Newsletter<br>Per ricevere OFFERTE&nbsp;&amp;&nbsp;NEWS</h3>
+            <div class="form-block w-form">
+              {%- form "contact",  class: "form" -%}<input type="text" class="text-field w-input" maxlength="256" name="contact[name]" data-name="Name" placeholder="Il tuo nome" id="Name" required=""><input type="email" class="text-field w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="La tua email" id="Email-4" required=""><input type="submit" value="Iscriviti" data-wait="Attendi...." class="button color-red w-button">{%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+              <div class="success rounded w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              {%- unless form_success -%}<div class="error w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+                <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+              </div>{%- endunless -%}
+            </div>
+          </div>
+        </div>
+      </div>

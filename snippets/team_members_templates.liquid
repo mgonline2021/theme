@@ -1,0 +1,25 @@
+{% capture listItems %}
+                        {% for item in blogs['team'].articles %}
+                        <div role="listitem" class="w-dyn-item">
+            <a href="{{ item.url }}" class="inner-grid-cms vertical w-inline-block">
+              <div class="wrapper-image-blog team-members rounded"><img src="{{ item.image | img_url: 'master' }}" loading="lazy" alt="{{ item.image.alt }}" class="image-cms" srcset="{{ item.image | img_url: '1920x' }} 1920w,{{ item.image | img_url: '1600x' }} 1600w,{{ item.image | img_url: '1366x' }} 1366w,{{ item.image | img_url: '1024x' }} 1024w,{{ item.image | img_url: '768x' }} 768w,{{ item.image | img_url: '640x' }} 640w"></div>
+              <div id="w-node-_06efd976-2d37-1405-951c-36119ee51fd1-d0251620" class="info-members">
+                <div class="title-tag text-gray">{{ item.metafields.udesly['job-title'] }}</div>
+                <div class="overflow-wrapper">
+                  <h3 class="heading-regular text-light">{{ item.title }}</h3>
+                  <div class="underline"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+                        {% endfor %}
+                        {% endcapture %}
+{% assign items_length = listItems | strip | size %}
+    <div class="w-dyn-list" udy-collection="team">
+        {%- unless items_length == 0 -%}<div role="list" class="collection-list-news w-dyn-items">
+          {{ listItems }}
+        </div>{%- endunless -%}
+        {%- if items_length == 0 -%}<div class="w-dyn-empty">
+          <div>No items found.</div>
+        </div>{%- endif -%}
+      </div>

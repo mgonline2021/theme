@@ -1,0 +1,20 @@
+<div class="gray-wrapper no-padding">
+        <div class="w-layout-grid main-grid inner-padding-small">
+          <div id="w-node-c2864e63-da07-45d7-a893-74ed488cfc26-488cfc24" class="wrapper-call-to-action inner-padding-small">
+            <h2 class="text">Ti interessa il Primo webPos Tascabile?</h2>
+            <div class="wrap-summary">
+              <p class="main-paragraph text-white-opacity">Scrivi di seguito il tuo nominativo e una mail che leggi spesso, i posti ora sono limitati 😬</p>
+            </div>
+            <div class="form-block w-form">
+              {%- form "customer",  class: "form margin-bottom-small" -%}<input type="hidden" name="contact[tags]" value="newsletter"><input type="text" class="text-field dark w-input" maxlength="256" name="contact[note][nome]" data-name="Nome" placeholder="First Name" id="Nome" required=""><input type="text" class="text-field dark w-input" maxlength="256" name="contact[note][cognome]" data-name="Cognome" placeholder="Last Name" id="Cognome" required=""><input type="email" class="text-field dark w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="Indirizzo email" id="Email-6" required=""><input type="submit" value="Vai nel Futuro ->" data-wait="Attendi.." class="button color-red w-button">{%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+              <div class="success rounded w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              {%- unless form_success -%}<div class="error w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+                <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+              </div>{%- endunless -%}
+            </div>
+            <div class="text-small text-white-opacity">Disclaimer Legal Sentence</div>
+          </div>
+        </div>
+      </div>

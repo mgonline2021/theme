@@ -1,0 +1,30 @@
+{% capture listItems %}
+{% paginate collections.all.products by 999 %}
+{%- assign allItems = collections.all.products -%}
+{%- for item in allItems -%}{% assign condition_0 = false %}                  
+                {% if item.metafields.udesly['is-featured'] == "true" %}
+                    {% assign condition_0 = true %}
+                {% endif %}{% if condition_0 %}
+ <div role="listitem" class="w-dyn-item">
+            <a data-w-id="b42225d7-faa7-3c09-fd93-a42736ee4f5f" href="{{ item.url | within: collection }}" class="product-link-wrapper w-inline-block">
+              <div class="product-image-wrapper rounded"><img src="{{ item.featured_image | img_url: 'master' }}" loading="lazy" alt="{{ item.featured_image.alt }}" class="full-image" data-commerce-type="variation-image" srcset="{{ item.featured_image | img_url: '1920x' }} 1920w,{{ item.featured_image | img_url: '1600x' }} 1600w,{{ item.featured_image | img_url: '1366x' }} 1366w,{{ item.featured_image | img_url: '1024x' }} 1024w,{{ item.featured_image | img_url: '768x' }} 768w,{{ item.featured_image | img_url: '640x' }} 640w"></div>
+              <div class="wrap-product-info">
+                <h2 class="heading-small-new">{{ item.title }}</h2>
+                <div data-commerce-type="variation-price" class="text-small text-white-opacity">{{ item.price | money }}</div>
+              </div>
+            </a>
+          </div>
+{% endif %}
+{%- endfor -%}
+{% endpaginate %}
+{% endcapture %}
+{% assign items_length = listItems | strip | size %}
+
+<div class="w-dyn-list" udy-collection="product">
+        {%- unless items_length == 0 -%}<div role="list" class="collection-list-products w-dyn-items">
+          {{ listItems }}
+        </div>{%- endunless -%}
+        {%- if items_length == 0 -%}<div class="w-dyn-empty">
+          <div>No items found.</div>
+        </div>{%- endif -%}
+      </div>

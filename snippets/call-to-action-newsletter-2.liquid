@@ -1,0 +1,15 @@
+<div class="w-layout-grid main-grid inner-padding-small">
+        <div id="w-node-_410ec65a-e716-ed7a-b8c8-857240624ef0-40624eef" class="wrapper-call-to-action inner-padding-small">
+          <h2 class="heading-large2 margin-bottom-small">Ready to superpower your website?</h2>
+          <div class="form-block margin-bottom-xsmall w-form">
+            {%- form "contact",  class: "form" -%}<input type="text" class="text-field dark w-input" maxlength="256" name="contact[name]" data-name="Name" placeholder="Name" id="Name" required=""><input type="email" class="text-field dark w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="Email" id="Email-4" required=""><input type="submit" value="Get Started" data-wait="Please wait..." class="button color-red w-button">{%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+            <div class="success rounded w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            {%- unless form_success -%}<div class="error w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+              <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+            </div>{%- endunless -%}
+          </div>
+          <div class="text-small text-white-opacity">Disclaimer Legal Sentence</div>
+        </div>
+      </div>

@@ -1,0 +1,30 @@
+{% capture listItems %}
+{% paginate collections.all.products by 999 %}
+{%- assign allItems = collections.all.products -%}
+{%- for item in allItems -%}{% assign condition_0 = false %}                  
+                {% unless item.handle == product.handle %}
+                    {% assign condition_0 = true %}
+                {% endunless %}{% if condition_0 %}
+ <div role="listitem" class="w-dyn-item">
+            <a href="{{ item.url | within: collection }}" class="inner-grid-cms vertical short-gap w-inline-block">
+              <div class="product-image-wrapper"><img src="{{ item.featured_image | img_url: 'master' }}" loading="lazy" alt="{{ item.featured_image.alt }}" class="image-cms" data-commerce-type="variation-image" srcset="{{ item.featured_image | img_url: '1920x' }} 1920w,{{ item.featured_image | img_url: '1600x' }} 1600w,{{ item.featured_image | img_url: '1366x' }} 1366w,{{ item.featured_image | img_url: '1024x' }} 1024w,{{ item.featured_image | img_url: '768x' }} 768w,{{ item.featured_image | img_url: '640x' }} 640w"></div>
+              <div id="w-node-d8bf417a-a584-1ff9-efdd-26f8c07d8034-49251597" class="info-members">
+                <h3 class="heading-small-new">{{ item.title }}</h3>
+                <div data-commerce-type="variation-price" class="text-small text-white-opacity">{{ item.price | money }}</div>
+              </div>
+            </a>
+          </div>
+{% endif %}
+{%- endfor -%}
+{% endpaginate %}
+{% endcapture %}
+{% assign items_length = listItems | strip | size %}
+
+<div class="w-dyn-list" udy-collection="product">
+        {%- unless items_length == 0 -%}<div role="list" class="collection-list-news _3-col w-dyn-items">
+          {{ listItems }}
+        </div>{%- endunless -%}
+        {%- if items_length == 0 -%}<div class="w-dyn-empty">
+          <div>No items found.</div>
+        </div>{%- endif -%}
+      </div>

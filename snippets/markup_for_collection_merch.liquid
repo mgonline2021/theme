@@ -1,0 +1,33 @@
+{% capture listItems %}
+{% for item in collections[settings.collection_merch].products limit: settings.collection_merch_limit %}
+<div role="listitem" class="collection-item-banner-newcopy w-dyn-item">
+              <a id="w-node-a763637b-79bb-5037-a2ab-4d2a4d2bc935-442515e2" href="{{ item.url | within: collection }}" class="link-banner-copy w-inline-block">
+                <div class="grid-wrapper product-banner inner-padding-medium">
+                  <div class="tag-sale">
+                    <div>IN&nbsp;SALDO&nbsp;QUESTO&nbsp;MESE</div>
+                  </div>
+                  <div class="wrapper-heading margin-bottom-xsmall">
+                    <h1 class="text">{{ item.title }}</h1>
+                    <div class="main-paragraph compare-pricing" data-commerce-type="variation-compare_at_price">{{ item.selected_or_first_available_variant.compare_at_price | money }}</div>
+                    <div data-commerce-type="variation-price" class="main-paragraph bold">{{ item.price | money }}</div>
+                  </div>
+                  <div class="button color-red">
+                    <div>Acquista Ora</div><img src="{{ 'cta-arrow-white.svg' | asset_url }}" loading="lazy" alt="" class="icon-arrow">
+                  </div>
+                </div>
+              </a>
+              <a id="w-node-af7d3b01-b991-f928-9b44-d5573ca873b5-442515e2" href="{{ item.url | within: collection }}" class="w-inline-block">
+                <div class="wrapper-image-product banner"><img src="{{ item.featured_image | img_url: 'master' }}" loading="lazy" alt="{{ item.featured_image.alt }}" class="image-product" data-commerce-type="variation-image" srcset="{{ item.featured_image | img_url: '1920x' }} 1920w,{{ item.featured_image | img_url: '1600x' }} 1600w,{{ item.featured_image | img_url: '1366x' }} 1366w,{{ item.featured_image | img_url: '1024x' }} 1024w,{{ item.featured_image | img_url: '768x' }} 768w,{{ item.featured_image | img_url: '640x' }} 640w"></div>
+              </a>
+            </div>
+{%- endfor -%}
+{% endcapture %}
+{% assign items_length = listItems | strip | size %}
+<div class="collection-list-wrapper w-dyn-list" udy-collection="product">
+          {%- unless items_length == 0 -%}<div role="list" class="w-dyn-items">
+            {{ listItems }}
+          </div>{%- endunless -%}
+          {%- if items_length == 0 -%}<div class="w-dyn-empty">
+            <div>No items found.</div>
+          </div>{%- endif -%}
+        </div>

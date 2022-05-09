@@ -1,0 +1,23 @@
+
+    <div class="container titles w-container">
+      <h1 class="heading-large2">{{ section.settings.header_title }}</h1>
+    </div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","section titles wf-section");</script>
+        
+{% schema %}
+{
+  "name": "Header Title",
+  "tag": "div",
+  "class": "section titles wf-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header_title",
+      "label": "Header Title",
+      "default": "Pay per transaction only."
+    }
+  ]
+}
+{% endschema %}

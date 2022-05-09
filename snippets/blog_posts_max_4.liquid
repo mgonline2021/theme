@@ -1,0 +1,26 @@
+{% capture listItems %}
+
+{%- assign allItems = blogs['post'].articles -%}
+{%- for item in allItems limit: 4 -%}
+ <div role="listitem" class="w-dyn-item">
+            <a href="{{ item.url }}" class="inner-grid-cms vertical w-inline-block">
+              <div class="wrapper-image-blog row rounded"><img src="{{ item.image | img_url: 'master' }}" loading="lazy" alt="{{ item.image.alt }}" class="image-cms" srcset="{{ item.image | img_url: '1920x' }} 1920w,{{ item.image | img_url: '1600x' }} 1600w,{{ item.image | img_url: '1366x' }} 1366w,{{ item.image | img_url: '1024x' }} 1024w,{{ item.image | img_url: '768x' }} 768w,{{ item.image | img_url: '640x' }} 640w"></div>
+              <div id="w-node-ee131ae3-f883-cceb-a801-a7f42a4df640-0e25154e" class="info-members">
+                {%- assign itemHandle = "blog-categories/" | append: item.metafields.udesly['category'].handle -%}{%- assign refItem = articles[itemHandle] -%}<div class="title-tag text-red">{{ refItem.title }}</div>
+                <h3 class="heading-small-new text-light">{{ item.title }}</h3>
+              </div>
+            </a>
+          </div>
+{%- endfor -%}
+
+{% endcapture %}
+{% assign items_length = listItems | strip | size %}
+
+<div class="w-dyn-list" udy-collection="post">
+        {%- unless items_length == 0 -%}<div role="list" class="collection-list-news w-dyn-items">
+          {{ listItems }}
+        </div>{%- endunless -%}
+        {%- if items_length == 0 -%}<div class="w-dyn-empty">
+          <div>No items found.</div>
+        </div>{%- endif -%}
+      </div>
