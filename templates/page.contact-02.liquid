@@ -1,0 +1,71 @@
+{%- assign headerSnippetPath = "header-index" -%}{%- assign wfPage = "627929cccf40a9d71a25155d" -%}{%- assign bodyClasses = "" -%}
+  {%- render 'loader' -%}
+  {%- section 'global-nav' -%}
+  <div class="section wf-section">
+    <div class="container title w-container">
+      <div class="w-layout-grid main-grid margin-bottom-small">
+        <div id="w-node-_12c10da2-d926-3eee-09c7-97900004ab9c-1a25155d" class="overflow-wrapper">
+          <h1 class="text margin-bottom-xsmall">We’d love to hear from you.</h1>
+          <div class="paragraph-wrapper margin-bottom-xsmall">
+            <h4>Geral communication</h4>
+            <p class="p-small-size">For general queries, including partnership opportunities, please email <a href="mailto:#">info@musk.com</a>
+            </p>
+          </div>
+          <div class="paragraph-wrapper margin-bottom-xsmall">
+            <h4>Help &amp; support</h4>
+            <p class="p-small-size">We’re here to help with any questions or code. <a href="#">Get Support</a>
+            </p>
+          </div>
+          <div class="paragraph-wrapper margin-bottom-xsmall">
+            <h4>Address</h4>
+            <p class="p-small-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
+          </div>
+        </div>
+        <div id="w-node-f8854203-a303-13c2-c3ed-69e72ef67e46-1a25155d" class="contain-form rounded">
+          <div class="form-container">
+            <div class="form-wrapper left">
+              <div class="full-form w-form">
+                {%- form "contact",  class: "inner-form" -%}
+                  <div class="inner-input">
+                    <div class="label-form">Full name</div><input type="text" class="text-field dark w-input" maxlength="256" name="contact[name]" data-name="Name" placeholder="e.g. John Smith" id="Name" required="">
+                  </div>
+                  <div class="inner-input">
+                    <div class="label-form">Email Address</div><input type="email" class="text-field dark w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="e.g. john@email.com" id="Email-4" required="">
+                  </div>
+                  <div class="inner-input margin-bottom-xsmall">
+                    <div class="label-form">Message</div><textarea placeholder="Message..." maxlength="5000" id="Message" name="contact[message]" data-name="Message" required="" class="textarea-message w-input"></textarea>
+                  </div>
+                  <div class="inner-input margin-bottom-xsmall"><input type="submit" value="Submit" data-wait="Please wait..." class="button color-red w-button"></div>
+                {%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+                <div class="success rounded w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                {%- unless form_success -%}<div class="error rounded w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+                  <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+                </div>{%- endunless -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-icons-wrapper">
+        <a href="http://www.facebook.com" target="_blank" class="link-social w-inline-block"><img src="{{ 'ic-facebook-white.svg' | asset_url }}" loading="lazy" alt="" class="icon-social profile"></a>
+        <a href="http://www.instagram.com/joaopaulots" target="_blank" class="link-social w-inline-block"><img src="{{ 'ic-instagram-white.svg' | asset_url }}" loading="lazy" alt="" class="icon-social profile"></a>
+        <a href="http://www.linkedin.com" target="_blank" class="link-social w-inline-block"><img src="{{ 'ic-linkedin-white.svg' | asset_url }}" loading="lazy" alt="" class="icon-social profile"></a>
+        <a href="http://www.twitter.com" target="_blank" class="link-social w-inline-block"><img src="{{ 'ic-twitter-white.svg' | asset_url }}" loading="lazy" alt="" class="icon-social profile"></a>
+        <a href="#" class="link-social w-inline-block"><img src="{{ 'icon-mail.svg' | asset_url }}" loading="lazy" alt="" class="icon-social profile"></a>
+      </div>
+    </div>
+  </div>
+  {%- render 'footer' -%}
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=627929cccf40a94a9f251539" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <style>
+  .w-webflow-badge {
+        position: fixed !important;
+    display: None !important;
+    visibility: hidden !important;
+}
+<style>
+</body></html></style>{{ 'udesly-shopify.min.js' | asset_url | script_tag }}

@@ -1,0 +1,240 @@
+{%- assign headerSnippetPath = "header-index" -%}{%- assign wfPage = "627929cccf40a96d49251597" -%}{%- assign bodyClasses = "" -%}
+  {%- section 'global-nav' -%}
+  <div class="section titles wf-section"></div>
+  <div class="wf-section">
+    <div class="container-product-copy inner-padding-small w-container">
+      <div class="w-layout-grid main-grid short-gap">
+        <div id="w-node-e1dc66fb-bf88-2cf1-1bca-006b5e6d4019-49251597">
+          <div class="wrapper-image-product rounded"><img src="{{ product.featured_image | img_url: 'master' }}" loading="lazy" alt="{{ product.title }}" data-commerce-type="variation-image" srcset="{{ product.featured_image | img_url: '1920x' }} 1920w,{{ product.featured_image | img_url: '1600x' }} 1600w,{{ product.featured_image | img_url: '1366x' }} 1366w,{{ product.featured_image | img_url: '1024x' }} 1024w,{{ product.featured_image | img_url: '768x' }} 768w,{{ product.featured_image | img_url: '640x' }} 640w"></div>
+          {% assign ref = product.selected_or_first_available_variant %}{%- if ref.metafields.udesly['more-images'] -%}<div class="wrapper-image-product">
+            {% if product.variants.size > 1 and product.selected_or_first_available_variant.metafields.udesly['more-images'].size > 0 %}{%- assign setItems = product.selected_or_first_available_variant.metafields.udesly['more-images'] -%}<div class="w-dyn-list" data-commerce-type="more-images">
+              {%- unless setItems.size == 0 -%}<div role="list" class="w-dyn-items">
+                {%- for setItem in setItems -%}<div role="listitem" class="w-dyn-item"><img src="{{ setItem.more-images }}" loading="lazy" alt="" class="more-images rounded"></div>{%- endfor -%}
+              </div>{%- endunless -%}
+              {%- if setItems.size == 0 -%}<div class="w-dyn-empty">
+                <div>No items found.</div>
+              </div>{%- endif -%}
+            <template><div class="w-dyn-list" udesly-repeater="true" data-commerce-type="more-images">
+              <div role="list" class="w-dyn-items">
+                <div role="listitem" class="w-dyn-item"><img src="{# setItem.more-images #}" loading="lazy" alt="" class="more-images rounded"></div>
+              </div>
+              <div class="w-dyn-empty">
+                <div>No items found.</div>
+              </div>
+            </div></template></div>{% else %}{%- assign setItems = product.images -%}<div class="w-dyn-list" data-commerce-type="more-images">
+              {%- unless setItems.size == 0 -%}<div role="list" class="w-dyn-items">
+                {%- for setItem in setItems -%}<div role="listitem" class="w-dyn-item"><img src="{{ setItem | product_img_url: 'master' }}" loading="lazy" alt="" class="more-images rounded"></div>{%- endfor -%}
+              </div>{%- endunless -%}
+              {%- if setItems.size == 0 -%}<div class="w-dyn-empty">
+                <div>No items found.</div>
+              </div>{%- endif -%}
+            </div>{%- endif -%}
+          </div>{%- endif -%}
+        </div>
+        <div id="w-node-_57198bed-cc0e-e250-6f72-f2fa069b2b16-49251597" class="sidebar-product">
+          <h1 class="text">{{ product.title }}</h1>
+          <div data-commerce-type="variation-price">{{ product.price | money }}</div>
+          <div class="add-cart inner-padding-xsmall">
+            {%- form "product", product, data-node-type: "commerce-add-to-cart-form", class: "w-commerce-commerceaddtocartform default-state" -%}{%- unless product.has_only_default_variant or product.variants.size == 1 -%}<div data-node-type="add-to-cart-option-list" position-id="aea6050c-ac5b-5d8e-fbd2-8dd924d7ea4e">{%- for option in product.options_with_values -%}<fieldset data-node-type="add-to-cart-option" style="{% if product.has_only_default_variant or product.variants.size == 1 %}display: none; {% endif %}"><label data-node-type="add-to-cart-option-label" class="field-label">{{ option.name }}</label><select data-node-type="add-to-cart-option-select" class="w-select" style="display: none;" name="{{ "option" | append: forloop.index }}">{%- render "product-options", option: option -%}</select><div data-node-type="add-to-cart-option-pill-group" class="w-commerce-commerceaddtocartoptionpillgroup" aria-label="{{ "option" | append: forloop.index  }}">{%- for value in option.values -%}<div data-node-type="add-to-cart-option-pill" class="option-button w-commerce-commerceaddtocartoptionpill" data-option-name="{{ value | handle }}"><div data-node-type="block">{{ value }}</div></div>{%- endfor -%}</div></fieldset>{%- endfor -%}</div>{%- endunless -%}<input type="number" pattern="^[0-9]+$" inputmode="numeric" id="quantity-25f47ea09320482594e0fdbabbb070f8" name="quantity" min="1" position-id="aea6050c-ac5b-5d8e-fbd2-8dd924d7ea57" class="w-commerce-commerceaddtocartquantityinput quantity-field" value="1">
+              <div position-id="5a36e2ff-6330-1b1e-eeff-dfc8ff17bc4f" class="wrap-buttons-cart inner-padding-xsmall"><input type="submit" data-node-type="commerce-add-to-cart-button" data-loading-text="Aggiungiamo al carrello..." value="Compra Ora" aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton button-copy-cart color-red">
+                <a data-node-type="commerce-buy-now-button" data-default-text="Buy now" data-subscription-text="Subscribe now" aria-busy="false" aria-haspopup="false" style="display:none" class="w-commerce-commercebuynowbutton button color-red" href="/checkout">Buy now</a>
+              </div>
+            {%- render "product-variants-data" product: product -%}{%- endform -%}
+            <div style="display:none" class="w-commerce-commerceaddtocartoutofstock out-stock">
+              <div>This product is out of stock.</div>
+            </div>
+            <div data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror error">
+              <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Product is not available in this quantity." data-w-add-to-cart-general-error="Something went wrong when adding this item to the cart." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Something went wrong when trying to purchase this item." data-w-add-to-cart-checkout-disabled-error="Checkout is disabled on this site." data-w-add-to-cart-select-all-options-error="Please select an option in each set.">Product is not available in this quantity.</div>
+            </div>
+          </div>
+          <p class="p-small-size-product-desc"></p>
+          <div>{{ product.metafields.udesly['description'] }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wf-section">
+    <div class="container inner-padding-small w-container">
+      <div class="w-layout-grid main-grid margin-bottom-small">
+        <div id="w-node-d6e7f812-0eee-e04a-ef46-50258f4f9726-49251597" class="gray-wrapper-2">
+          <div class="w-layout-grid content-grid">
+            <div class="icon-wrapper"><img src="{{ 'balloon-1.I01.2k-1.png' | asset_url }}" loading="lazy" data-w-id="d6e7f812-0eee-e04a-ef46-50258f4f9729" style="opacity:0" srcset="{{ 'balloon-1.I01.2k-1-p-500.png' | asset_url }} 500w, {{ 'balloon-1.I01.2k-1.png' | asset_url }} 512w" sizes="100px" alt="" class="icon-content-numbers"></div>
+            <div class="small-paragraph-wrapper">
+              <h3 class="heading-regular">Completa il tuo Ordine</h3>
+              <p class="main-paragraph">Scegli la versione della Cardz che preferisci e concludi l'acquisto.<br>Manca poco...</p>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d6e7f812-0eee-e04a-ef46-50258f4f972f-49251597" class="gray-wrapper-2">
+          <div class="w-layout-grid content-grid">
+            <div class="icon-wrapper"><img src="{{ 'foil-balloon-number-2-blue.H01.2k-1.png' | asset_url }}" loading="lazy" data-w-id="9a584ab7-6a7a-72c7-c2d0-d195942cb780" style="opacity:0" srcset="{{ 'foil-balloon-number-2-blue.H01.2k-1-p-500.png' | asset_url }} 500w, {{ 'foil-balloon-number-2-blue.H01.2k-1.png' | asset_url }} 512w" sizes="100px" alt="" class="icon-content-numbers"></div>
+            <div class="small-paragraph-wrapper">
+              <h3 class="heading-regular">Attendi il Team Grafico</h3>
+              <p class="main-paragraph">Attendi la mail dei nostri grafici con le richieste delle info e file necessari per la stampa.</p>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-d6e7f812-0eee-e04a-ef46-50258f4f9738-49251597" class="gray-wrapper-2">
+          <div class="w-layout-grid content-grid">
+            <div class="icon-wrapper"><img src="{{ 'balloons-number-3.H01.2k-2.png' | asset_url }}" loading="lazy" data-w-id="030ff265-97e6-a926-5b79-bdf26344ddaa" style="opacity:0" srcset="{{ 'balloons-number-3.H01.2k-2-p-500.png' | asset_url }} 500w, {{ 'balloons-number-3.H01.2k-2.png' | asset_url }} 512w" sizes="100px" alt="" class="icon-content-numbers"></div>
+            <div class="small-paragraph-wrapper">
+              <h3 class="heading-regular">Attendi la consegna</h3>
+              <p class="main-paragraph">Non ti resta che aspettare la tua Cardz personale e iniziare a stupire ogni cliente che incontri!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-poster-url="https://uploads-ssl.webflow.com/61c23fcf799e8f5aff8a155e/625304e153c9ae8671f34da6_video-cardz-poster-00001.jpg" data-video-urls="videos/video-cardz-transcode.mp4,videos/video-cardz-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video-3 w-background-video w-background-video-atom"><video id="26e78f12-a58e-9964-6fd5-930e8e8bf96f-video" autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/61c23fcf799e8f5aff8a155e/625304e153c9ae8671f34da6_video-cardz-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+          <source src="{{ 'video-cardz-transcode.mp4' | asset_url }}" data-wf-ignore="true">
+          <source src="{{ 'video-cardz-transcode.webm' | asset_url }}" data-wf-ignore="true">
+        </video></div>
+    </div>
+  </div>
+  <div class="section wf-section">
+    <div class="container top-padding-large w-container">
+      <div class="w-layout-grid main-grid-copy no-gap">
+        <div id="w-node-fd9a9d53-717b-cfc3-c8c5-1b78988fd203-49251597" class="grid-wrapper inner-padding-small">
+          <h5 class="text">il Piano Cardz è INCLUSO!!</h5>
+          <p class="main-paragraph margin-bottom-small">Basta acquistare una Cardz...<br>Senza pagare altro, per sempre!</p>
+          <div class="list-wrapper">
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>1 Landing Page per ogni Cardz</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>37+ Moduli /&nbsp;Blocchi e tutti i prossimi che saranno aggiunti</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Vcard Illimitate</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Accesso ad API e Affiliation</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Statistiche e Analisi</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Accesso all'app MyCardz</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Personalizzazione Illimitata in tempo reale di qualsiasi elemento</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Creazione e Condivisione QR Code</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Barra Menú per Condivisione Multipla Contactless Diretta</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Accesso ad Upload e Cloud File</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Accesso al Modulo Email Collector</div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Accesso ad Html e Javascript </div>
+            </div>
+            <div class="list-flex">
+              <div class="circle-check"><img src="{{ 'icon-check.svg' | asset_url }}" loading="lazy" alt="" class="icon-check"></div>
+              <div>Molto, molto altro ancora.....</div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-fd9a9d53-717b-cfc3-c8c5-1b78988fd24c-49251597" class="overflow-wrapper rounded">
+          <div class="content">
+            <div data-w-id="fd9a9d53-717b-cfc3-c8c5-1b78988fd24e" style="opacity:0" class="phone-holder-container">
+              <div class="phone-slider-container">
+                <div data-delay="2000" data-animation="fade" class="phone-slider w-slider" data-autoplay="true" data-easing="ease-out" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
+                  <div class="phone-slider-mask w-slider-mask">
+                    <div class="phone-slide w-slide"><img src="{{ 'img_8129-min.PNG' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 158px, 239px" srcset="{{ 'img_8129-min-p-500.png' | asset_url }} 500w, {{ 'img_8129-min-p-800.png' | asset_url }} 800w, {{ 'img_8129-min.PNG' | asset_url }} 1284w" alt="" class="phone-slide-image"></div>
+                    <div class="phone-slide w-slide"><img src="{{ 'img_8131-min.PNG' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 158px, 239px" srcset="{{ 'img_8131-min-p-500.png' | asset_url }} 500w, {{ 'img_8131-min-p-800.png' | asset_url }} 800w, {{ 'img_8131-min.PNG' | asset_url }} 1284w" alt="Moduli che puoi aggiungere da solo per creare il tuo biglietto da visita digitale che è un vero sito web integrato nel tuo biglietto nfc e qr di Cardz" class="phone-slide-image"></div>
+                    <div class="phone-slide w-slide"><img src="{{ 'img_8132-min.PNG' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 158px, 239px" srcset="{{ 'img_8132-min-p-500.png' | asset_url }} 500w, {{ 'img_8132-min-p-800.png' | asset_url }} 800w, {{ 'img_8132-min.PNG' | asset_url }} 1284w" alt="" class="phone-slide-image"></div>
+                    <div class="phone-slide w-slide"><img src="{{ 'img_8133-min.PNG' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 158px, 239px" srcset="{{ 'img_8133-min-p-500.png' | asset_url }} 500w, {{ 'img_8133-min-p-800.png' | asset_url }} 800w, {{ 'img_8133-min.PNG' | asset_url }} 1284w" alt="" class="phone-slide-image"></div>
+                    <div class="phone-slide w-slide"><img src="{{ 'img_8128-min.PNG' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 158px, 239px" srcset="{{ 'img_8128-min-p-500.png' | asset_url }} 500w, {{ 'img_8128-min-p-800.png' | asset_url }} 800w, {{ 'img_8128-min.PNG' | asset_url }} 1284w" alt="" class="phone-slide-image"></div>
+                    <div class="phone-slide w-slide"><img src="{{ 'img_8127-min.PNG' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 158px, 239px" srcset="{{ 'img_8127-min-p-500.png' | asset_url }} 500w, {{ 'img_8127-min.PNG' | asset_url }} 1284w" alt="" class="phone-slide-image"></div>
+                  </div>
+                  <div class="phone-slider-arrows w-slider-arrow-left">
+                    <div class="w-icon-slider-left"></div>
+                  </div>
+                  <div class="phone-slider-arrows w-slider-arrow-right">
+                    <div class="w-icon-slider-right"></div>
+                  </div>
+                  <div class="phone-slide-nav w-slider-nav w-round"></div>
+                </div>
+              </div><img src="{{ 'untitled-design-2022-01-03t122826.883.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 350px, 530px" srcset="{{ 'untitled-design-2022-01-03t122826.883-p-500.png' | asset_url }} 500w, {{ 'untitled-design-2022-01-03t122826.883.png' | asset_url }} 800w" alt="" class="phone-holder-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-poster-url="https://uploads-ssl.webflow.com/61c23fcf799e8f5aff8a155e/625309393660db6b329e0468_cardzmrlelecorto-poster-00001.jpg" data-video-urls="videos/cardzmrlelecorto-transcode.mp4,videos/cardzmrlelecorto-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="w-background-video w-background-video-atom"><video id="9d3225ce-acec-a7e0-42b8-3865abeb8a55-video" autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/61c23fcf799e8f5aff8a155e/625309393660db6b329e0468_cardzmrlelecorto-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+          <source src="{{ 'cardzmrlelecorto-transcode.mp4' | asset_url }}" data-wf-ignore="true">
+          <source src="{{ 'cardzmrlelecorto-transcode.webm' | asset_url }}" data-wf-ignore="true">
+        </video></div>
+    </div>
+  </div>
+  <div class="wf-section">
+    <div class="container-copy inner-padding-small-copy w-container">
+      <div class="heading-wrapper-center inner-padding-small">
+        <h2 class="heading-regular">Ti potrebbero interessare anche....</h2>
+      </div>
+      {%- if settings.collection_products_template != blank -%}{%- render "markup_for_collection_products_template" -%}{%- else -%}{%- render "products_where__id_ne_current" -%}{%- endif -%}
+      <div class="w-layout-grid main-grid">
+        {%- render 'quote-04' -%}
+        <div id="w-node-_96df1073-2d03-8a68-5b68-1f2affbf4273-49251597" class="gray-wrapper quote">
+          <div class="w-layout-grid content-grid">
+            <div class="paragraph-wrapper padding-bottom-small"><img src="{{ 'ic-quote.svg' | asset_url }}" loading="lazy" alt="" class="quote-icon">
+              <h3>La perfezione!!</h3>
+              <p class="main-paragraph">Prodotto ottimo e Dashboard totalmente rivoluzionaria! Ho provato un prodotto simile di un’altra azienda ma Cardz è tutta un’altra storia!</p>
+              <div class="ratings inner-padding-xsmall margin-bottom-xsmall"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"></div>
+            </div>
+            <div class="w-layout-grid profile">
+              <div class="image-profile-wrapper small"><img src="{{ 'trustpilot-some-icon-1000px-circle.png' | asset_url }}" loading="lazy" sizes="45px" srcset="{{ 'trustpilot-some-icon-1000px-circle-p-500.png' | asset_url }} 500w, {{ 'trustpilot-some-icon-1000px-circle-p-800.png' | asset_url }} 800w, {{ 'trustpilot-some-icon-1000px-circle.png' | asset_url }} 1000w" alt="" class="image-profile"></div>
+              <div id="w-node-_96df1073-2d03-8a68-5b68-1f2affbf4284-49251597" class="flex-name">
+                <div class="text-small">Gino Lanfredi</div>
+                <div class="text-small text-white-opacity">Recensione verificata da TrustPilot</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="w-node-_96df1073-2d03-8a68-5b68-1f2affbf4289-49251597" class="gray-wrapper quote">
+          <div class="w-layout-grid content-grid">
+            <div class="paragraph-wrapper padding-bottom-small"><img src="{{ 'ic-quote.svg' | asset_url }}" loading="lazy" alt="" class="quote-icon">
+              <h3>L'idea è TOP!</h3>
+              <p class="main-paragraph">Creare la paginetta web è molto facile anche per un non esperto informatico!<br>Da non sottovalutare la confezione, che si presta anche per fare bella figura per un regalo davvero particolare.</p>
+              <div class="ratings inner-padding-xsmall margin-bottom-xsmall"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"><img src="{{ 'star-rating-yellow.svg' | asset_url }}" loading="lazy" alt="" class="ratings-stars"></div>
+            </div>
+            <div class="w-layout-grid profile">
+              <div class="image-profile-wrapper small"><img src="{{ 'trustpilot-some-icon-1000px-circle.png' | asset_url }}" loading="lazy" sizes="45px" srcset="{{ 'trustpilot-some-icon-1000px-circle-p-500.png' | asset_url }} 500w, {{ 'trustpilot-some-icon-1000px-circle-p-800.png' | asset_url }} 800w, {{ 'trustpilot-some-icon-1000px-circle.png' | asset_url }} 1000w" alt="" class="image-profile"></div>
+              <div id="w-node-_96df1073-2d03-8a68-5b68-1f2affbf429c-49251597" class="flex-name">
+                <div class="text-small">Dott. Guglielmo Piazza</div>
+                <div class="text-small text-white-opacity">Recensione verificata da TrustPilot</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- render 'footer' -%}
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=627929cccf40a94a9f251539" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <style>
+  .w-webflow-badge {
+        position: fixed !important;
+    display: None !important;
+    visibility: hidden !important;
+}
+<style>
+</body></html></style>{{ 'udesly-shopify.min.js' | asset_url | script_tag }}
